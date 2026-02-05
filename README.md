@@ -1,2 +1,1 @@
-# proyectoBasura
-Control de basura
+
