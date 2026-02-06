@@ -21,7 +21,6 @@ public class NombreUsuario {
 	 * @return the usuarioBean
 	 */
 	public String getUsuarioBean() {
-		System.out.println("eee: " + usuarioBean);
 		return usuarioBean;
 	}
 
