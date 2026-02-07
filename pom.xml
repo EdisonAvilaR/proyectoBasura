@@ -55,6 +55,12 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>com.sendgrid</groupId>
+			<artifactId>sendgrid-java</artifactId>
+			<version>4.10.2</version>
+		</dependency>
+
 		<!-- JSF and JoinFaces -->
 		<dependency>
 			<groupId>org.joinfaces</groupId>
@@ -83,7 +89,7 @@
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
-	
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -96,7 +102,7 @@
 		</dependencies>
 	</dependencyManagement>
 
-	<build> 
+	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -110,33 +116,33 @@
 							<artifactId>lombok</artifactId>
 						</path>
 					</annotationProcessorPaths>
-					
+
 				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			
-			 <plugin>
-            <groupId>org.jacoco</groupId>
-            <artifactId>jacoco-maven-plugin</artifactId>
-            <version>0.8.10</version> <!-- última estable a 2025 -->
-            <executions>
-                <execution>
-                    <goals>
-                        <goal>prepare-agent</goal> <!-- Inicia Jacoco -->
-                    </goals>
-                </execution>
-                <execution>
-                    <id>report</id>
-                    <phase>prepare-package</phase> <!-- Antes de empaquetar -->
-                    <goals>
-                        <goal>report</goal> <!-- Genera reporte -->
-                    </goals>
-                </execution>
-            </executions>
-        </plugin>
+
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.10</version> <!-- última estable a 2025 -->
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal> <!-- Inicia Jacoco -->
+						</goals>
+					</execution>
+					<execution>
+						<id>report</id>
+						<phase>prepare-package</phase> <!-- Antes de empaquetar -->
+						<goals>
+							<goal>report</goal> <!-- Genera reporte -->
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 </project>
