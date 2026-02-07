@@ -12,8 +12,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ArrayName {
 	
-	private String[] arrayName = {"C","D","F","S"};
-	
+	private String[] arrayName = {"C","D","F","S","ED"};
 
 	
 	/**
