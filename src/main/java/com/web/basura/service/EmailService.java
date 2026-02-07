@@ -26,7 +26,7 @@ public class EmailService {
 //	@Autowired
 //    private JavaMailSender mailSender;
 
-	@Value("${sendgrid.api.key}")
+	@Value("${spring.sendgrid.api-key}")
 	private String sendGridApiKey;
 
 	public void enviarCorreo(String mensaje, boolean isarriba, boolean isNormal) {
