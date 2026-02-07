@@ -18,16 +18,19 @@ public class EmailService {
     private JavaMailSender mailSender;
 
     public void enviarCorreo(String name,boolean isarriba, boolean isNormal) {
-        SimpleMailMessage email = new SimpleMailMessage();
-        // aca es donde se envia a los destinatarios
+       
+        
+    	// aca es donde se envia a los destinatarios
        
         if(isarriba) {
-        	email.setTo("ddigites@gmail.com");
+            SimpleMailMessage email = new SimpleMailMessage();
+        	email.setTo("ddigitess@gmail.com");
         	email.setSubject("Preparate: ");
             email.setText("Edison: Debes alistar para sacar la basura de arriba");
             mailSender.send(email);
         }
         if(isNormal) {
+        	 SimpleMailMessage email = new SimpleMailMessage();
         	email.setTo("horariobasura@gmail.com");
         	email.setSubject("Preparate: ");
             email.setText(""+ name+" " + " proximamente debes alistar para sacar la basura");

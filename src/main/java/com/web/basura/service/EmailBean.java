@@ -25,6 +25,7 @@ public class EmailBean {
 
 	private String anteString = "";
 	private boolean booleanValue;
+	private boolean recordatorio = false;
 	private boolean booleanValueAnimal;
 	@Autowired
 	private EmailService emailService;
@@ -62,15 +63,23 @@ public class EmailBean {
         				);
             		return ;
             	}
-                if(booleanValueAnimal) {
-                	emailService.enviarCorreo(siguienteUsuario + ", te toca sacar la basura.", true,true);
+                if(name.equalsIgnoreCase("ED") && booleanValueAnimal && !booleanValue) {
+                	emailService.enviarCorreo("Los de abajo ya sacaron la basura de arriba. ", false, true);
                 	anteString = name;
+                }else if(booleanValueAnimal && booleanValue){
+                	 emailService.enviarCorreo(siguienteUsuario + ", te toca sacar la basura.",booleanValueAnimal, booleanValue);
+                	 anteString = name;
+                	 recordatorio = true;
                 }else {
-                	 emailService.enviarCorreo(siguienteUsuario + ", te toca sacar la basura.",false, true);
-                }
+                  emailService.enviarCorreo(siguienteUsuario + ", te toca sacar la basura.",false, booleanValue);
+                  anteString = name;
+               }
                 FacesContext.getCurrentInstance().addMessage(null, 
                     new FacesMessage(FacesMessage.SEVERITY_INFO, "Actualizado", 
                         "Correo enviado a " + siguienteUsuario));
+                PrimeFaces.current().executeScript(
+    				    "setTimeout(function(){ window.location.href='/user/usuario.xhtml'; }, 2000);"
+    				);
             } else {
                 FacesContext.getCurrentInstance().addMessage(null, 
                     new FacesMessage(FacesMessage.SEVERITY_WARN, "Advertencia", 
@@ -89,8 +98,8 @@ public class EmailBean {
      */
     private void enviarRecordatorio(String usuarioActual, String[] nombres) {
         String siguienteUsuario = obtenerSiguienteUsuario(usuarioActual, nombres);
-        if (siguienteUsuario != null && booleanValueAnimal) {
-            emailService.enviarCorreo(siguienteUsuario + ", ¡recuerda sacar la basura hoy!", true, true);
+        if (siguienteUsuario != null && recordatorio) {
+            emailService.enviarCorreo(siguienteUsuario + ", ¡recuerda sacar la basura la de arriba!", true, true);
         }else {
         	emailService.enviarCorreo(siguienteUsuario + ", ¡recuerda sacar la basura hoy!", false, true);
         }

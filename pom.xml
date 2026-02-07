@@ -23,8 +23,9 @@
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
-			<version>4.23.1</version><!--$NO-MVN-MAN-VER$-->
+			<version>4.23.1</version>
 		</dependency>
+		<!-- Dependencia para enviar a correos -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>

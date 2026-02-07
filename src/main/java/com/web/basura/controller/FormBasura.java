@@ -87,7 +87,6 @@ public class FormBasura {
  	        	name += nombre + "\n";
  	        }
  		}
-       
         if(name.contains(getUsername().toUpperCase())) {
         	nameUser.setUsuarioBean(username);
     		FacesContext.getCurrentInstance().getExternalContext().redirect("/form/form.xhtml");
